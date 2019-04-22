@@ -1,6 +1,6 @@
 const userRepository = require('./../repositories/userRepository');
 const RegisterUserService = require('./../services/RegisterUserService');
-const encryptationAdapter = require('./../adapters/encryptationAdapter');
+const cryptographyAdapter = require('../adapters/cryptographyAdapter');
 const uuidGeneratorAdapter = require('./../adapters/uuidGeneratorAdapter');
 const { validationErrors } = require('./../errors/errors');
 
@@ -24,7 +24,7 @@ const signUp = async (request, response) => {
     }
 
     const service = new RegisterUserService(
-      encryptationAdapter,
+      cryptographyAdapter,
       uuidGeneratorAdapter,
       userRepository
       );
